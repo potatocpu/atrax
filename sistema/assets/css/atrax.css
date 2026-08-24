@@ -1,0 +1,256 @@
+:root {
+  --papel: #fbfaf5;
+  --papel-2: #f3f1e8;
+  --tinta: #2c2a27;
+  --tinta-2: #6c685f;
+  --linea: #d8d4c8;
+  --acento: #d56f3e;
+  --acento-oscuro: #b85a2e;
+
+  --bs-primary: #d56f3e;
+  --bs-primary-rgb: 213, 111, 62;
+  --bs-body-bg: var(--papel-2);
+  --bs-body-color: var(--tinta);
+  --bs-border-color: var(--linea);
+  --bs-link-color: var(--acento-oscuro);
+  --bs-link-hover-color: var(--acento);
+  --bs-border-radius: .65rem;
+}
+
+body {
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+  background: var(--papel-2);
+  color: var(--tinta);
+}
+
+h1, h2, h3 { letter-spacing: .2px; }
+
+.btn-primary {
+  --bs-btn-bg: var(--acento);
+  --bs-btn-border-color: var(--acento-oscuro);
+  --bs-btn-hover-bg: var(--acento-oscuro);
+  --bs-btn-hover-border-color: var(--acento-oscuro);
+  --bs-btn-active-bg: var(--acento-oscuro);
+  --bs-btn-active-border-color: var(--acento-oscuro);
+  --bs-btn-disabled-bg: var(--acento);
+  --bs-btn-disabled-border-color: var(--acento-oscuro);
+}
+
+.btn-outline-secondary {
+  --bs-btn-color: var(--tinta-2);
+  --bs-btn-border-color: var(--linea);
+  --bs-btn-hover-bg: var(--papel);
+  --bs-btn-hover-color: var(--tinta);
+  --bs-btn-hover-border-color: var(--tinta-2);
+}
+
+.form-control:focus, .form-select:focus {
+  border-color: var(--acento);
+  box-shadow: 0 0 0 .2rem rgba(213, 111, 62, .15);
+}
+
+.atrax-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border: 2px solid var(--tinta);
+  border-radius: 50% 30% 50% 30%;
+  background: #f6e3d7;
+  font-weight: 700;
+}
+
+.atrax-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--papel-2);
+  border: 1px solid var(--linea);
+  font-size: .85rem;
+  font-weight: 600;
+}
+
+.atrax-topbar {
+  background: #fff;
+  border-bottom: 1px solid var(--linea);
+  padding: .6rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1030;
+}
+
+.atrax-marca {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  font-weight: 700;
+  color: var(--tinta);
+  text-decoration: none;
+}
+
+.atrax-pills { display: flex; gap: .4rem; flex-wrap: wrap; }
+
+.atrax-pills .pill {
+  padding: .3rem .8rem;
+  border: 1px solid var(--linea);
+  border-radius: 999px;
+  font-size: .875rem;
+  color: var(--tinta-2);
+  text-decoration: none;
+  background: #fff;
+}
+
+.atrax-pills .pill:hover { border-color: var(--tinta-2); color: var(--tinta); }
+.atrax-pills .pill.active { background: var(--acento); border-color: var(--acento-oscuro); color: #fff; }
+
+.atrax-sidebar { background: #fff; border-right: 1px solid var(--linea); min-height: 100%; }
+.atrax-sidebar .nav-link { color: var(--tinta-2); border-radius: .5rem; padding: .5rem .75rem; }
+.atrax-sidebar .nav-link:hover { background: var(--papel-2); color: var(--tinta); }
+.atrax-sidebar .nav-link.active { background: #f6e3d7; color: var(--tinta); font-weight: 600; }
+
+@media (min-width: 992px) {
+  .atrax-sidebar { position: sticky; top: 57px; height: calc(100vh - 57px); }
+}
+
+.atrax-main { padding: 1.5rem; }
+.atrax-cuerpo { min-height: calc(100vh - 120px); }
+
+.atrax-publico {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.atrax-pie {
+  border-top: 1px solid var(--linea);
+  padding: 1rem;
+  text-align: center;
+  font-size: .8rem;
+  color: var(--tinta-2);
+  background: #fff;
+}
+
+.tarjeta {
+  background: #fff;
+  border: 1px solid var(--linea);
+  border-radius: .9rem;
+  padding: 1.1rem;
+  height: 100%;
+}
+
+.tarjeta-titulo {
+  font-size: .8rem;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  color: var(--tinta-2);
+  margin-bottom: .35rem;
+}
+
+.tarjeta-numero { font-size: 2rem; font-weight: 700; line-height: 1.1; }
+.tarjeta-pie { font-size: .8rem; color: var(--tinta-2); }
+.tarjeta.alerta { border-color: var(--acento); background: #fdf3ec; }
+
+.panel {
+  background: #fff;
+  border: 1px solid var(--linea);
+  border-radius: .9rem;
+  padding: 1.1rem;
+  margin-bottom: 1.25rem;
+}
+
+.panel > header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .75rem;
+  flex-wrap: wrap;
+  margin-bottom: .9rem;
+}
+
+.panel > header h2 { font-size: 1.05rem; margin: 0; }
+
+.encabezado-pagina {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.25rem;
+}
+
+.encabezado-pagina h1 { font-size: 1.5rem; margin: 0; }
+.encabezado-pagina p { color: var(--tinta-2); margin: .25rem 0 0; font-size: .9rem; }
+
+.tabla-scroll { overflow-x: auto; }
+.table { --bs-table-bg: transparent; margin-bottom: 0; }
+.table thead th { font-size: .78rem; text-transform: uppercase; letter-spacing: .4px; color: var(--tinta-2); }
+
+.etiqueta {
+  display: inline-block;
+  padding: .15rem .55rem;
+  border-radius: 999px;
+  font-size: .75rem;
+  border: 1px solid var(--linea);
+  background: var(--papel-2);
+  color: var(--tinta-2);
+  white-space: nowrap;
+}
+
+.etiqueta.ok { background: #e6f2e6; border-color: #b9d9b9; color: #2f6b34; }
+.etiqueta.aviso { background: #fdf1e2; border-color: #f0c79a; color: #8a4b12; }
+.etiqueta.acento { background: #f6e3d7; border-color: var(--acento); color: var(--acento-oscuro); }
+
+.linea-tiempo { list-style: none; margin: 0; padding: 0; }
+.linea-tiempo li { display: flex; gap: .75rem; padding-bottom: 1rem; position: relative; }
+.linea-tiempo li:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  left: 11px;
+  top: 26px;
+  bottom: 0;
+  width: 2px;
+  background: var(--linea);
+}
+.linea-tiempo .punto {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid var(--linea);
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: .7rem;
+  flex: 0 0 auto;
+}
+.linea-tiempo .punto.hecho { background: var(--acento); border-color: var(--acento-oscuro); color: #fff; }
+.linea-tiempo .punto.actual { border-color: var(--acento); color: var(--acento-oscuro); font-weight: 700; }
+
+.barra { height: 8px; border-radius: 999px; background: var(--papel-2); overflow: hidden; }
+.barra span { display: block; height: 100%; background: var(--acento); }
+.barra span.lleno { background: var(--acento-oscuro); }
+
+.acceso-tarjeta {
+  width: 100%;
+  max-width: 420px;
+  background: #fff;
+  border: 1px solid var(--linea);
+  border-radius: .9rem;
+  padding: 2rem 1.75rem;
+}
+
+.acceso-tarjeta.ancha { max-width: 640px; }
+
+.acceso-encabezado { text-align: center; margin-bottom: 1.5rem; }
+.acceso-encabezado h1 { font-size: 1.6rem; margin: .5rem 0 .1rem; }
+.acceso-encabezado p { color: var(--tinta-2); font-size: .9rem; margin: 0; }
+
+.cuentas-demo { font-size: .78rem; color: var(--tinta-2); }
+.cuentas-demo code { color: var(--acento-oscuro); }

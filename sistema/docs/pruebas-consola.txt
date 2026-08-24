@@ -1,0 +1,194 @@
+Salida completa de docs/pruebas.sh
+Ejecutado el 20/08/2026 20:39 sobre la base de datos recien importada desde bd/atrax.sql
+PHP 8.2 - MariaDB 10.4 (XAMPP) - servidor de pruebas en http://127.0.0.1:8099/sistema
+
+
+=== P01 Login correcto por rol
+  admin -> 302 http://127.0.0.1:8099/sistema/admin/index.php
+  cocina -> 302 http://127.0.0.1:8099/sistema/operador/index.php
+  julio -> 302 http://127.0.0.1:8099/sistema/cliente/index.php
+
+=== P02 Login incorrecto
+Usuario o contrasena incorrectos.
+
+=== P03 Inyeccion SQL en el login
+Usuario o contrasena incorrectos.
+
+=== P04 Acceso sin sesion
+  admin/index.php -> 302 http://127.0.0.1:8099/sistema/login.php
+
+=== P05 Acceso con rol incorrecto
+  cliente -> admin/index.php: 403
+  cliente -> operador/stock.php: 403
+
+=== P06 Logout
+  con sesion: 200
+  tras logout: 302 http://127.0.0.1:8099/sistema/login.php
+
+=== P07 Token CSRF invalido
+  POST sin token valido: 400
+
+=== P08 Usuario inactivo
+La cuenta esta inactiva. Consulta con el administrador.
+
+=== P09 Registro de cliente valido
+Cuenta creada correctamente. Ya podes iniciar sesion.
+
+=== P10 Registro con usuario y correo duplicados
+El nombre de usuario ya esta en uso.
+El correo electronico ya esta registrado.
+
+=== P11 Registro con datos invalidos
+El nombre debe tener al menos 3 caracteres.
+El usuario debe tener entre 4 y 40 caracteres (letras, numeros, punto o guion bajo).
+El correo electronico no tiene un formato valido.
+El telefono no tiene un formato valido.
+La direccion debe tener al menos 5 caracteres.
+El tipo de cliente no es valido.
+Selecciona una zona de entrega valida.
+La contrasena debe tener al menos 8 caracteres.
+Las contrasenas no coinciden.
+
+=== P12 Cliente arma un pedido valido
+Pedido #6 confirmado. Te avisamos cuando este en camino.
+tipo	cantidad	numero_lote
+Salida	2	L-0994
+Salida	3	L-0991
+
+=== P13 Cliente pide mas de lo disponible
+No hay stock suficiente de Ensalada de quinoa: pediste 20 y hay 5.
+Tenes que elegir al menos un plato.
+El plan Mensual requiere exactamente 20 viandas y elegiste 0.
+
+=== P14 Cantidad distinta a la del plan
+El plan Semanal requiere exactamente 5 viandas y elegiste 2.
+
+=== P15 Fecha de entrega invalida
+La entrega debe programarse como minimo para manana.
+
+=== P16 Cliente consulta el pedido de otro cliente
+  302 http://127.0.0.1:8099/sistema/cliente/pedidos.php
+El pedido solicitado no existe o no te pertenece.
+
+=== P17 Operador registra produccion
+Lote L-1000 registrado: 25 viandas de Pollo grillado con pure.
+
+=== P18 Produccion con datos invalidos
+El plato seleccionado no existe.
+La cantidad producida debe ser un numero entre 1 y 500.
+La fecha de vencimiento no puede ser anterior a hoy.
+
+=== P19 Salida mayor al disponible del lote
+La salida (50) supera el stock disponible del lote (5).
+
+=== P20 Salida de stock valida
+Movimiento registrado sobre el lote L-0998.
+numero_lote	disponible	estado
+L-0998	3	Disponible
+
+=== P21 Transicion de estado invalida
+No se puede pasar el pedido #5 de "Pendiente" a "Entregado".
+
+=== P22 Transiciones validas Pendiente -> Preparando -> Listo
+El pedido #5 paso a "Preparando".
+El pedido #5 paso a "Listo".
+estado_anterior	estado_nuevo
+NULL	Pendiente
+Pendiente	Preparando
+Preparando	Listo
+
+=== P23 Asignacion a vehiculo de otra zona
+El vehiculo no cubre la zona Z2 del pedido.
+
+=== P24 Asignacion sin capacidad suficiente
+El vehiculo Furgon 2 no tiene capacidad suficiente (0 + 5 supera 3).
+
+=== P25 Asignacion valida y despacho
+Pedido #5 asignado a Furgon 2.
+El pedido #5 paso a "En distribucion".
+
+=== P26 Despacho sin vehiculo asignado
+Antes de despachar el pedido #3 hay que asignarle un vehiculo en Distribucion.
+
+=== P27 Cancelacion devuelve el stock
+numero_lote	disponible	estado
+L-0983	0	Agotado
+El pedido #4 paso a "Cancelado".
+numero_lote	disponible	estado
+L-0983	5	Disponible
+tipo	cantidad	motivo
+Salida	5	Pedido #4
+Entrada	5	Devolucion por cancelacion del pedido #4
+
+=== P28 Vehiculo en mantenimiento
+El vehiculo Moto 2 esta en mantenimiento.
+
+=== P29 Admin crea una zona
+Zona creada correctamente.
+
+=== P30 Zona duplicada
+Ya existe otra zona con ese codigo.
+Ya existe otra zona con ese nombre.
+
+=== P31 Admin edita una zona
+Zona actualizada correctamente.
+codigo	nombre	barrios	activa
+Z8	Buceo	Buceo, Parque Batlle, Villa Dolores	0
+
+=== P32 Vehiculo con matricula duplicada
+Ya existe otro vehiculo con esa matricula.
+
+=== P33 Vehiculo con datos invalidos
+El nombre del vehiculo debe tener al menos 3 caracteres.
+La matricula debe tener entre 5 y 15 caracteres.
+La capacidad debe ser un numero entre 1 y 500.
+La zona seleccionada no existe.
+El estado indicado no es valido.
+
+=== P34 Vehiculo valido
+Vehiculo creado correctamente.
+
+=== P35 Admin actualiza el stock minimo
+Stock minimo actualizado para 5 platos.
+nombre	stock_minimo
+Milanesa con ensalada	15
+Pollo grillado con pure	15
+Tarta de verdura	10
+Ensalada de quinoa	2
+Wok de vegetales	15
+
+=== P36 Stock minimo invalido
+El stock minimo debe ser un numero entre 0 y 999.
+Uno de los platos indicados no existe.
+
+=== P37 Admin cambia precios y desactiva un plato
+Menu actualizado correctamente.
+nombre	precio	activo
+Milanesa con ensalada	520.00	1
+Pollo grillado con pure	490.00	1
+Tarta de verdura	460.00	1
+Ensalada de quinoa	470.00	0
+Wok de vegetales	470.00	1
+
+=== P38 El catalogo del cliente refleja el cambio
+  quinoa en el catalogo: 0 coincidencias
+
+=== P39 Admin crea un operador
+Usuario creado correctamente.
+
+=== P40 Admin intenta crear un usuario con rol cliente
+Solo se pueden crear usuarios con rol administrador u operador.
+
+=== P41 Usuario desactivado no puede entrar
+Usuario desactivado.
+La cuenta esta inactiva. Consulta con el administrador.
+
+=== P42 El admin no puede desactivarse a si mismo
+No podes desactivar tu propia cuenta.
+
+=== P43 Restricciones cruzadas entre roles
+  operador -> admin/usuarios.php: 403
+  operador -> acciones/usuarios.php: 403
+  admin -> acciones/pedidos.php: 403
+
+=== Fin de las pruebas
