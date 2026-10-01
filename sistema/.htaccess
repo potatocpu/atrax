@@ -1,0 +1,8 @@
+# Cualquier direccion que no sea un archivo existente ni una carpeta con index.php
+# muestra la pantalla 404 de ViandaSegura (tambien evita listar carpetas internas).
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME}/index.php !-f
+  RewriteRule ^ 404.php [L]
+</IfModule>

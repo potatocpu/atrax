@@ -5,33 +5,8 @@ require_once __DIR__ . '/auth.php';
 $titulo  = $titulo ?? APP_NOMBRE;
 $seccion = $seccion ?? '';
 
-$menus = [
-    'administrador' => [
-        ['dashboard',     'Dashboard',       'admin/index.php'],
-        ['pedidos',       'Pedidos',         'admin/pedidos.php'],
-        ['stock',         'Stock minimo',    'admin/stock.php'],
-        ['menus',         'Menus y precios', 'admin/menus.php'],
-        ['zonas',         'Zonas',           'admin/zonas.php'],
-        ['vehiculos',     'Vehiculos',       'admin/vehiculos.php'],
-        ['estadisticas',  'Estadisticas',    'admin/estadisticas.php'],
-        ['usuarios',      'Usuarios',        'admin/usuarios.php'],
-    ],
-    'operador' => [
-        ['panel',        'Panel del dia', 'operador/index.php'],
-        ['produccion',   'Produccion',    'operador/produccion.php'],
-        ['stock',        'Stock FIFO',    'operador/stock.php'],
-        ['pedidos',      'Pedidos',       'operador/pedidos.php'],
-        ['distribucion', 'Distribucion',  'operador/distribucion.php'],
-    ],
-    'cliente' => [
-        ['menu',     'Menu',        'cliente/index.php'],
-        ['pedido',   'Armar pedido','cliente/pedido.php'],
-        ['pedidos',  'Mis pedidos', 'cliente/pedidos.php'],
-    ],
-];
-
 $rol   = rol_actual();
-$menu  = $menus[$rol] ?? [];
+$menu  = menu_de($rol);
 $yo    = usuario();
 $exito = flash_leer('exito');
 $exitoTitulo = flash_leer('exito_titulo', 'Listo');

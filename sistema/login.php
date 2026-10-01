@@ -6,6 +6,9 @@ if (autenticado()) {
     redirigir(panel_de(rol_actual()));
 }
 
+// Si la base no responde se avisa ya en la entrada (pantalla 503), no recien al ingresar.
+bd();
+
 $titulo = 'Iniciar sesion';
 require __DIR__ . '/includes/cabecera.php';
 ?>

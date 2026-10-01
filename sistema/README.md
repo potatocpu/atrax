@@ -25,6 +25,17 @@ Stack: HTML5, CSS3, JavaScript, Bootstrap 5, PHP 8 y MySQL/MariaDB.
    (`root` sin contrasena), editar `sistema/includes/config.php`.
 4. Entrar a `http://localhost/atrax/sistema/`.
 
+Las direcciones que no existen muestran la pantalla 404 gracias a
+`sistema/.htaccess` (requiere `mod_rewrite`, activo por defecto en XAMPP).
+
+### Modo mantenimiento
+
+Para avisar a los usuarios que el sistema no esta disponible (pantalla 503 con
+reintento automatico) alcanza con crear un archivo vacio llamado
+`sistema/MANTENIMIENTO` o definir la variable de entorno `ATRAX_MANTENIMIENTO=1`.
+Al borrar el archivo el sistema vuelve a funcionar. Si la base de datos no
+responde se muestra la misma pantalla de "servidores caidos" automaticamente.
+
 ## Cuentas de prueba
 
 | Rol | Usuario | Contrasena |
@@ -47,6 +58,8 @@ atrax/
   wireframes/            disenos de la segunda entrega (16 pantallas)
   sistema/               sistema funcional de la tercera entrega
     index.php            entrada: redirige al panel segun el rol
+    404.php              pantalla de pagina no encontrada
+    .htaccess            envia las direcciones inexistentes a 404.php
     login.php            inicio de sesion
     registro.php         alta de clientes
     logout.php           cierre de sesion
@@ -58,6 +71,8 @@ atrax/
       cabecera.php       encabezado, navegacion y mensajes
       pie.php            cierre de pagina y scripts
       denegado.php       pantalla 403
+      error.php          pantallas 404, 500 y 503, mantenimiento y errores no controlados
+      pantalla_error.php plantilla de las pantallas de error
     modelo/              acceso a datos (una funcion por consulta)
       usuarios.php       usuarios, roles y clientes
       zonas.php          zonas y vehiculos
@@ -101,6 +116,10 @@ resultado. Ningun archivo de presentacion escribe SQL.
 - Registro autonomo de clientes con validacion de datos y control de duplicados.
 - Cierre de sesion con destruccion de la sesion y de su cookie.
 - Bloqueo de pantallas no autorizadas (403) y de acciones no autorizadas.
+- Pantalla 404 para direcciones inexistentes y pantalla 503 cuando los servidores
+  estan caidos (la base no responde) o el sistema esta en mantenimiento, con
+  reintento automatico; los errores inesperados muestran una pantalla 500 y quedan
+  registrados en el log de PHP.
 - Pop ups: los mensajes de exito y error aparecen como avisos flotantes (bienvenida
   al iniciar sesion, errores de login, confirmaciones de cada accion) y las acciones
   delicadas piden confirmacion en una ventana (cerrar sesion, desactivar usuarios,
