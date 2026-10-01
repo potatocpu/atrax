@@ -74,7 +74,10 @@ require __DIR__ . '/../includes/cabecera.php';
 
 <section class="panel">
   <header><h2>Registrar movimiento de stock</h2></header>
-  <form action="<?= url('acciones/stock.php') ?>" method="post" data-validar novalidate>
+  <form action="<?= url('acciones/stock.php') ?>" method="post" data-validar novalidate
+        data-confirmar-cuando="tipo:Descarte"
+        data-confirmar="Se descarta todo lo disponible del lote {lote_id}. Esta accion no se puede deshacer."
+        data-confirmar-titulo="Descartar el lote?" data-confirmar-boton="Descartar" data-confirmar-tipo="peligro">
     <?= campo_token() ?>
 
     <div class="row g-3">

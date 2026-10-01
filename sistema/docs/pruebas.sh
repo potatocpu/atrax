@@ -15,7 +15,7 @@ entrar() {
 
 tok() { curl -s -b "$1" "$2" | grep -o 'name="token" value="[a-f0-9]*"' | head -1 | sed 's/.*value="//;s/"//'; }
 errores() { curl -s -b "$1" "$2" | tr '\n' ' ' | grep -o '<li>[^<]*</li>' | sed 's/<[^>]*>//g'; }
-exito() { curl -s -b "$1" "$2" | tr '\n' ' ' | grep -o 'alert-success" role="status">[^<]*' | sed 's/.*status">//'; }
+exito() { curl -s -b "$1" "$2" | tr '\n' ' ' | grep -o 'data-mensaje="exito">[^<]*' | sed 's/.*">//'; }
 titulo() { echo; echo "=== $1"; }
 
 titulo "P01 Login correcto por rol"

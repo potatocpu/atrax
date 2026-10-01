@@ -52,7 +52,7 @@ require __DIR__ . '/includes/cabecera.php';
   </div>
 </section>
 
-<footer class="mt-3 text-center small text-secondary">
+<footer class="mt-3 text-center small acceso-pie">
   <p class="mb-0"><?= APP_NOMBRE ?> &copy; 2026 — Produccion y distribucion de viandas, Montevideo.</p>
 </footer>
 <?php require __DIR__ . '/includes/pie.php'; ?>

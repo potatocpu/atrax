@@ -34,6 +34,7 @@ $rol   = rol_actual();
 $menu  = $menus[$rol] ?? [];
 $yo    = usuario();
 $exito = flash_leer('exito');
+$exitoTitulo = flash_leer('exito_titulo', 'Listo');
 $listaErrores = errores();
 ?>
 <!DOCTYPE html>
@@ -51,7 +52,7 @@ $listaErrores = errores();
 <header class="atrax-topbar">
   <div class="container-fluid d-flex align-items-center gap-3">
     <?php if ($rol === 'administrador'): ?>
-      <button class="btn btn-sm btn-outline-secondary d-lg-none" type="button"
+      <button class="btn btn-sm btn-outline-light d-lg-none" type="button"
               data-bs-toggle="offcanvas" data-bs-target="#menuLateral" aria-controls="menuLateral">
         <span class="visually-hidden">Abrir menu</span>&#9776;
       </button>
@@ -71,9 +72,11 @@ $listaErrores = errores();
     <?php endif; ?>
 
     <div class="ms-auto d-flex align-items-center gap-2">
-      <span class="d-none d-sm-inline text-secondary small"><?= e($yo['nombre']) ?> · <?= e($rol) ?></span>
+      <span class="d-none d-sm-inline atrax-usuario small"><?= e($yo['nombre']) ?> · <?= e($rol) ?></span>
       <span class="atrax-avatar" aria-hidden="true"><?= e($yo['inicial']) ?></span>
-      <a class="btn btn-sm btn-outline-secondary" href="<?= url('logout.php') ?>">Salir</a>
+      <a class="btn btn-sm btn-outline-light" href="<?= url('logout.php') ?>"
+         data-confirmar="Vas a salir de <?= APP_NOMBRE ?>. Para volver a entrar vas a necesitar tu usuario y contrasena."
+         data-confirmar-titulo="Cerrar sesion?" data-confirmar-boton="Salir">Salir</a>
     </div>
   </div>
 </header>
@@ -116,16 +119,31 @@ $listaErrores = errores();
 <main class="atrax-publico">
 <?php endif; ?>
 
-<?php if ($exito): ?>
-  <div class="alert alert-success" role="status"><?= e($exito) ?></div>
-<?php endif; ?>
+<div class="atrax-toasts" aria-live="polite" data-avisos>
+  <?php if ($exito): ?>
+    <div class="toast show vs-toast exito" role="status" aria-atomic="true" data-bs-delay="5000">
+      <span class="vs-toast-icono" aria-hidden="true">&#10003;</span>
+      <div class="vs-toast-cuerpo">
+        <p class="vs-toast-titulo"><?= e($exitoTitulo) ?></p>
+        <p class="mb-0" data-mensaje="exito"><?= e($exito) ?></p>
+      </div>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Cerrar aviso"></button>
+      <span class="vs-toast-tiempo" aria-hidden="true"></span>
+    </div>
+  <?php endif; ?>
 
-<?php if ($listaErrores): ?>
-  <div class="alert alert-danger" role="alert">
-    <ul class="mb-0 ps-3">
-      <?php foreach ($listaErrores as $mensaje): ?>
-        <li><?= e($mensaje) ?></li>
-      <?php endforeach; ?>
-    </ul>
-  </div>
-<?php endif; ?>
+  <?php if ($listaErrores): ?>
+    <div class="toast show vs-toast error" role="alert" aria-atomic="true" data-bs-autohide="false">
+      <span class="vs-toast-icono" aria-hidden="true">!</span>
+      <div class="vs-toast-cuerpo">
+        <p class="vs-toast-titulo"><?= count($listaErrores) > 1 ? 'Revisa estos datos' : 'No se pudo completar' ?></p>
+        <ul<?= count($listaErrores) === 1 ? ' class="list-unstyled"' : '' ?>>
+          <?php foreach ($listaErrores as $mensaje): ?>
+            <li><?= e($mensaje) ?></li>
+          <?php endforeach; ?>
+        </ul>
+      </div>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Cerrar aviso"></button>
+    </div>
+  <?php endif; ?>
+</div>

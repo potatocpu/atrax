@@ -75,6 +75,7 @@ atrax/
     assets/css/atrax.css estilos propios sobre Bootstrap
     assets/img/          logo (logo.svg), icono reducido y favicon (icono.svg)
     assets/js/validaciones.js  validaciones y ayudas del lado del cliente
+    assets/js/avisos.js  pop ups: avisos flotantes y ventanas de confirmacion
     bd/atrax.sql         estructura + datos de prueba
     docs/                documentacion, pruebas y capturas
 ```
@@ -100,6 +101,10 @@ resultado. Ningun archivo de presentacion escribe SQL.
 - Registro autonomo de clientes con validacion de datos y control de duplicados.
 - Cierre de sesion con destruccion de la sesion y de su cookie.
 - Bloqueo de pantallas no autorizadas (403) y de acciones no autorizadas.
+- Pop ups: los mensajes de exito y error aparecen como avisos flotantes (bienvenida
+  al iniciar sesion, errores de login, confirmaciones de cada accion) y las acciones
+  delicadas piden confirmacion en una ventana (cerrar sesion, desactivar usuarios,
+  quitar pedidos de un vehiculo, cancelar pedidos y descartar lotes).
 
 **Administrador**
 
@@ -126,7 +131,8 @@ resultado. Ningun archivo de presentacion escribe SQL.
 
 - Menu con las modalidades y los platos disponibles segun el stock real.
 - Armado de pedido: eleccion de modalidad, fecha de entrega y cantidades por plato,
-  con descuento del stock por FIFO al confirmar.
+  con un resumen en ventana emergente (platos, subtotales y total) antes de
+  confirmar y descuento del stock por FIFO al confirmar.
 - Mis pedidos: historial con estado y total.
 - Seguimiento: linea de tiempo del pedido con fecha y responsable de cada cambio.
 
