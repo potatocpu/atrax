@@ -91,6 +91,7 @@ atrax/
     assets/img/          logo (logo.svg), icono reducido y favicon (icono.svg)
     assets/js/validaciones.js  validaciones y ayudas del lado del cliente
     assets/js/avisos.js  pop ups: avisos flotantes y ventanas de confirmacion
+    assets/js/esqueletos.js  esqueletos de carga al navegar entre pantallas
     bd/atrax.sql         estructura + datos de prueba
     docs/                documentacion, pruebas y capturas
 ```
@@ -116,6 +117,10 @@ resultado. Ningun archivo de presentacion escribe SQL.
 - Registro autonomo de clientes con validacion de datos y control de duplicados.
 - Cierre de sesion con destruccion de la sesion y de su cookie.
 - Bloqueo de pantallas no autorizadas (403) y de acciones no autorizadas.
+- Esqueletos de carga: al pasar de una pantalla a otra o enviar un formulario, el
+  contenido se reemplaza por un esqueleto (placeholders de Bootstrap 5) con la forma
+  de la pantalla de destino (panel, tabla, tarjetas o formulario), el boton muestra
+  "Procesando..." y una barra fina indica el progreso, en lugar de quedar congelado.
 - Pantalla 404 para direcciones inexistentes y pantalla 503 cuando los servidores
   estan caidos (la base no responde) o el sistema esta en mantenimiento, con
   reintento automatico; los errores inesperados muestran una pantalla 500 y quedan
