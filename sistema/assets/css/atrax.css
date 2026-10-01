@@ -50,15 +50,16 @@ h1, h2, h3 { letter-spacing: .2px; }
 }
 
 .atrax-logo {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  display: block;
   width: 34px;
   height: 34px;
-  border: 2px solid var(--tinta);
-  border-radius: 50% 30% 50% 30%;
-  background: #f6e3d7;
-  font-weight: 700;
+  flex: 0 0 auto;
+}
+
+.acceso-logo {
+  display: block;
+  margin: 0 auto;
+  border-radius: 22%;
 }
 
 .atrax-avatar {

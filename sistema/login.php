@@ -11,8 +11,8 @@ require __DIR__ . '/includes/cabecera.php';
 ?>
 <section class="acceso-tarjeta">
   <header class="acceso-encabezado">
-    <span class="atrax-logo" aria-hidden="true">A</span>
-    <h1>Atrax</h1>
+    <img class="acceso-logo" src="<?= url('assets/img/logo.svg') ?>" alt="" width="88" height="88">
+    <h1><?= APP_NOMBRE ?></h1>
     <p>Sistema de gestion de viandas</p>
   </header>
 
@@ -53,6 +53,6 @@ require __DIR__ . '/includes/cabecera.php';
 </section>
 
 <footer class="mt-3 text-center small text-secondary">
-  <p class="mb-0">Atrax &copy; 2026 — Produccion y distribucion de viandas, Montevideo.</p>
+  <p class="mb-0"><?= APP_NOMBRE ?> &copy; 2026 — Produccion y distribucion de viandas, Montevideo.</p>
 </footer>
 <?php require __DIR__ . '/includes/pie.php'; ?>

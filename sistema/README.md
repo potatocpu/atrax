@@ -1,7 +1,13 @@
-# Atrax — Sistema de gestion de viandas
+<img src="assets/img/logo.svg" alt="" width="96" height="96">
+
+# ViandaSegura — Sistema de gestion de viandas
 
 Tercera entrega: primera version funcional del sistema web, con autenticacion,
 control de acceso por roles y operaciones reales contra MySQL.
+
+> El sistema se llamaba **Atrax** en las entregas anteriores. El nombre visible
+> ahora es **ViandaSegura**; los nombres tecnicos (carpeta `atrax`, base `atrax`,
+> `atrax.css`, variables `ATRAX_*`) se mantienen para no romper instalaciones.
 
 Stack: HTML5, CSS3, JavaScript, Bootstrap 5, PHP 8 y MySQL/MariaDB.
 
@@ -67,6 +73,7 @@ atrax/
     operador/            pantallas del operador
     cliente/             pantallas del cliente
     assets/css/atrax.css estilos propios sobre Bootstrap
+    assets/img/          logo (logo.svg), icono reducido y favicon (icono.svg)
     assets/js/validaciones.js  validaciones y ayudas del lado del cliente
     bd/atrax.sql         estructura + datos de prueba
     docs/                documentacion, pruebas y capturas
