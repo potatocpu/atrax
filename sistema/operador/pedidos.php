@@ -51,7 +51,7 @@ require __DIR__ . '/../includes/cabecera.php';
             <td><?= e($pedido['zona_codigo']) ?></td>
             <td><?= fecha_corta($pedido['fecha_entrega']) ?></td>
             <td><?= (int) $pedido['viandas'] ?></td>
-            <td><span class="etiqueta <?= $pedido['estado'] === 'Entregado' ? 'ok' : ($pedido['estado'] === 'Cancelado' ? '' : 'acento') ?>"><?= e($pedido['estado']) ?></span></td>
+            <td><span class="etiqueta <?= clase_estado($pedido['estado']) ?>"><?= e($pedido['estado']) ?></span></td>
             <td>
               <?php if ($siguientes): ?>
                 <form class="d-flex gap-2" action="<?= url('acciones/pedidos.php') ?>" method="post"

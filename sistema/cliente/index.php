@@ -45,10 +45,10 @@ require __DIR__ . '/../includes/cabecera.php';
     <?php foreach ($productos as $producto): ?>
       <?php $agotado = (int) $producto['disponible'] <= 0; ?>
       <div class="col-md-6 col-xl-4">
-        <article class="tarjeta<?= $agotado ? ' opacity-75' : '' ?>">
+        <article class="tarjeta<?= $agotado ? ' agotado' : '' ?>">
           <div class="d-flex justify-content-between align-items-start mb-1">
             <h3 class="h6 mb-0"><?= e($producto['nombre']) ?></h3>
-            <span class="etiqueta <?= $agotado ? 'aviso' : 'ok' ?>">
+            <span class="etiqueta <?= $agotado ? 'peligro' : 'ok' ?>">
               <?= $agotado ? 'agotado hoy' : (int) $producto['disponible'] . ' disp.' ?>
             </span>
           </div>

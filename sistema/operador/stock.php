@@ -56,9 +56,9 @@ require __DIR__ . '/../includes/cabecera.php';
             <td><?= (int) $lote['disponible'] ?></td>
             <td>
               <?php if ($lote['estado'] !== 'Disponible'): ?>
-                <span class="etiqueta"><?= e(strtolower($lote['estado'])) ?></span>
+                <span class="etiqueta <?= $lote['estado'] === 'Agotado' ? 'peligro' : '' ?>"><?= e(strtolower($lote['estado'])) ?></span>
               <?php elseif ((int) $lote['dias_para_vencer'] < 0): ?>
-                <span class="etiqueta aviso">vencido</span>
+                <span class="etiqueta peligro">vencido</span>
               <?php elseif ((int) $lote['dias_para_vencer'] === 0): ?>
                 <span class="etiqueta aviso">vence hoy</span>
               <?php else: ?>
@@ -129,7 +129,7 @@ require __DIR__ . '/../includes/cabecera.php';
             <td class="text-secondary"><?= fecha_hora($movimiento['fecha']) ?></td>
             <td><?= e($movimiento['numero_lote']) ?></td>
             <td><?= e($movimiento['producto']) ?></td>
-            <td><span class="etiqueta <?= $movimiento['tipo'] === 'Entrada' ? 'ok' : 'aviso' ?>"><?= e($movimiento['tipo']) ?></span></td>
+            <td><span class="etiqueta <?= $movimiento['tipo'] === 'Entrada' ? 'ok' : ($movimiento['tipo'] === 'Ajuste' ? 'acento' : '') ?>"><?= e($movimiento['tipo']) ?></span></td>
             <td><?= (int) $movimiento['cantidad'] ?></td>
             <td class="text-secondary"><?= e($movimiento['motivo']) ?></td>
             <td class="text-secondary"><?= e($movimiento['usuario']) ?></td>

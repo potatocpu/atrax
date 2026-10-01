@@ -70,7 +70,7 @@ require __DIR__ . '/../includes/cabecera.php';
                 <td><?= e($pedido['cliente']) ?></td>
                 <td><?= e($pedido['zona_codigo']) ?></td>
                 <td><?= fecha_corta($pedido['fecha_entrega']) ?></td>
-                <td><span class="etiqueta <?= $pedido['estado'] === 'Entregado' ? 'ok' : 'acento' ?>"><?= e($pedido['estado']) ?></span></td>
+                <td><span class="etiqueta <?= clase_estado($pedido['estado']) ?>"><?= e($pedido['estado']) ?></span></td>
                 <td class="text-end"><?= moneda($pedido['total']) ?></td>
               </tr>
             <?php endforeach; ?>
