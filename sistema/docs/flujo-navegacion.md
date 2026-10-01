@@ -98,7 +98,7 @@ hizo, y es lo que el cliente ve en la pantalla de seguimiento.
 | 08 Estadisticas | `admin/estadisticas.php` | Los graficos se resuelven con barras en CSS; falta exportar |
 | 09 Panel del dia | `operador/index.php` | Igual al diseno |
 | 10 Produccion / tickets | `operador/produccion.php` | Los tickets muestran pedido, producido y faltante; no hay impresion |
-| 11 Stock FIFO + alertas | `operador/stock.php` | Igual al diseno; la trazabilidad se ve en los movimientos |
+| 11 Stock + alertas | `operador/stock.php` | Igual al diseno; la trazabilidad se ve en los movimientos |
 | 12 Distribucion por zonas | `operador/distribucion.php` | La asignacion es por selector en lugar de arrastrar |
 | 13 Acceso del cliente | `login.php` y `registro.php` | Las mismas pantallas responden en movil |
 | 14 Menu disponible | `cliente/index.php` | Igual al diseno, sin fotos de los platos |

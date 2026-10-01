@@ -1,8 +1,10 @@
 # Capturas del sistema
 
 Tomadas con el sistema en funcionamiento sobre la base recien importada desde
-`bd/atrax.sql`. Las capturas 01 a 21 son a 1440 px de ancho; las 22 a 24 son a
-500 px, para mostrar el comportamiento responsivo.
+`bd/atrax.sql`, ya con la marca ViandaSegura y la paleta azul marino. Las capturas
+01 a 21 y 25 a 28 son a 1440 px de ancho; las 22 a 24 son a 500 px, para mostrar
+el comportamiento responsivo. Que hace cada pantalla esta explicado en la
+[guia de pantallas](../pantallas.md).
 
 | Archivo | Pantalla | Rol |
 |---|---|---|
@@ -19,7 +21,7 @@ Tomadas con el sistema en funcionamiento sobre la base recien importada desde
 | 11-admin-usuarios.png | Usuarios del sistema | administrador |
 | 12-operador-panel.png | Panel del dia | operador |
 | 13-operador-produccion.png | Tickets y registro de produccion | operador |
-| 14-operador-stock-fifo.png | Stock por lotes en orden FIFO y movimientos | operador |
+| 14-operador-stock-fifo.png | Stock por lotes en orden de salida y movimientos | operador |
 | 15-operador-pedidos.png | Pedidos y cambio de estado | operador |
 | 16-operador-distribucion.png | Asignacion de pedidos a vehiculos | operador |
 | 17-cliente-menu.png | Menu disponible | cliente |
@@ -30,3 +32,7 @@ Tomadas con el sistema en funcionamiento sobre la base recien importada desde
 | 22-cliente-menu-angosto.png | Menu del cliente en pantalla angosta | cliente |
 | 23-admin-dashboard-angosto.png | Dashboard en pantalla angosta | administrador |
 | 24-login-angosto.png | Login en pantalla angosta | publico |
+| 25-error-404.png | Pagina no encontrada (404) | publico |
+| 26-servidores-caidos-503.png | Servidores caidos: la base no responde (503) | publico |
+| 27-cliente-confirmar-pedido.png | Ventana de confirmacion con el resumen del pedido | cliente |
+| 28-esqueleto-carga.png | Esqueleto de carga al pasar a Pedidos | administrador |

@@ -69,7 +69,7 @@ function menu_de(string $rol): array
         'operador' => [
             ['panel',        'Panel del dia', 'operador/index.php'],
             ['produccion',   'Produccion',    'operador/produccion.php'],
-            ['stock',        'Stock FIFO',    'operador/stock.php'],
+            ['stock',        'Stock',         'operador/stock.php'],
             ['pedidos',      'Pedidos',       'operador/pedidos.php'],
             ['distribucion', 'Distribucion',  'operador/distribucion.php'],
         ],

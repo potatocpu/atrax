@@ -55,7 +55,7 @@ Tambien se puede crear una cuenta nueva de cliente desde `registro.php`.
 
 ```
 atrax/
-  wireframes/            disenos de la segunda entrega (16 pantallas)
+  wireframes/            disenos de la segunda entrega (16 pantallas, ver su README)
   sistema/               sistema funcional de la tercera entrega
     index.php            entrada: redirige al panel segun el rol
     404.php              pantalla de pagina no encontrada
@@ -103,6 +103,7 @@ resultado. Ningun archivo de presentacion escribe SQL.
 
 ## Documentacion
 
+- [Guia de pantallas: que hace cada una y como se usa](docs/pantallas.md)
 - [Requerimientos y roles actualizados](docs/requerimientos.md)
 - [Base de datos](docs/base-de-datos.md)
 - [Flujos de navegacion](docs/flujo-navegacion.md)
@@ -146,7 +147,7 @@ resultado. Ningun archivo de presentacion escribe SQL.
 
 - Panel del dia con lo pedido, lo producido, lo listo para despacho y las alertas.
 - Produccion: registro de lotes con fecha de vencimiento (genera el movimiento de entrada).
-- Stock FIFO: lotes ordenados por vencimiento, alertas de stock bajo, movimientos
+- Stock por lotes: lotes ordenados por vencimiento (criterio FIFO), alertas de stock bajo, movimientos
   de salida, ajuste y descarte, e historial de movimientos.
 - Pedidos: cambio de estado respetando las transiciones validas.
 - Distribucion: asignacion de pedidos a vehiculos validando zona, estado y capacidad.

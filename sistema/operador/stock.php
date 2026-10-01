@@ -10,13 +10,13 @@ $disponibles = array_values(array_filter($lotes, static fn ($lote) => $lote['est
 $alertas     = alertas_stock();
 $movimientos = ultimos_movimientos();
 
-$titulo  = 'Stock FIFO';
+$titulo  = 'Stock';
 $seccion = 'stock';
 require __DIR__ . '/../includes/cabecera.php';
 ?>
 <div class="encabezado-pagina">
   <div>
-    <h1>Stock por lotes (FIFO)</h1>
+    <h1>Stock por lotes</h1>
     <p>Los lotes se consumen por orden de vencimiento: el primero de la lista es el primero que sale.</p>
   </div>
 </div>
@@ -31,7 +31,7 @@ require __DIR__ . '/../includes/cabecera.php';
 <?php endif; ?>
 
 <section class="panel">
-  <header><h2>Lotes en orden FIFO</h2></header>
+  <header><h2>Lotes por orden de salida</h2></header>
   <div class="tabla-scroll">
     <table class="table align-middle">
       <thead>
