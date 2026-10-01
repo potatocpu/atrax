@@ -13,7 +13,7 @@ require __DIR__ . '/includes/cabecera.php';
 ?>
 <section class="acceso-tarjeta ancha">
   <header class="acceso-encabezado">
-    <span class="atrax-logo" aria-hidden="true">A</span>
+    <img class="acceso-logo" src="<?= url('assets/img/logo.svg') ?>" alt="" width="72" height="72">
     <h1>Crear cuenta</h1>
     <p>Completa tus datos para empezar a pedir viandas</p>
   </header>

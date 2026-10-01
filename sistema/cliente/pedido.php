@@ -24,7 +24,7 @@ require __DIR__ . '/../includes/cabecera.php';
   </div>
 </div>
 
-<form action="<?= url('acciones/pedido_cliente.php') ?>" method="post" data-validar novalidate>
+<form action="<?= url('acciones/pedido_cliente.php') ?>" method="post" data-validar data-resumen-pedido novalidate>
   <?= campo_token() ?>
 
   <div class="row g-3">
@@ -57,6 +57,7 @@ require __DIR__ . '/../includes/cabecera.php';
                   <td>
                     <label class="visually-hidden" for="cantidad<?= (int) $producto['id'] ?>">Cantidad de <?= e($producto['nombre']) ?></label>
                     <input class="form-control form-control-sm" type="number" data-vianda
+                           data-nombre="<?= e($producto['nombre']) ?>" data-precio="<?= (float) $producto['precio'] ?>"
                            id="cantidad<?= (int) $producto['id'] ?>"
                            name="cantidad[<?= (int) $producto['id'] ?>]"
                            min="0" max="<?= $disponible ?>" value="<?= (int) viejo('cantidad_' . $producto['id'], 0) ?>"
@@ -78,7 +79,7 @@ require __DIR__ . '/../includes/cabecera.php';
           <label class="form-label" for="plan_id">Modalidad</label>
           <select class="form-select" id="plan_id" name="plan_id" required>
             <?php foreach ($planes as $plan): ?>
-              <option value="<?= (int) $plan['id'] ?>" data-viandas="<?= (int) $plan['viandas'] ?>"
+              <option value="<?= (int) $plan['id'] ?>" data-viandas="<?= (int) $plan['viandas'] ?>" data-nombre="<?= e($plan['nombre']) ?>"
                       <?= (string) viejo('plan_id') === (string) $plan['id'] ? ' selected' : '' ?>>
                 <?= e($plan['nombre'] . ' — ' . (int) $plan['viandas'] . ' viandas') ?>
               </option>
@@ -108,4 +109,32 @@ require __DIR__ . '/../includes/cabecera.php';
     </div>
   </div>
 </form>
+
+<div class="modal fade" id="modalPedido" tabindex="-1" aria-labelledby="modalPedidoTitulo" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content vs-modal">
+      <div class="modal-header">
+        <h2 class="modal-title h5" id="modalPedidoTitulo">Confirma tu pedido</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body">
+        <dl class="row small mb-3">
+          <dt class="col-5">Modalidad</dt>
+          <dd class="col-7 text-end mb-1" data-resumen="plan"></dd>
+          <dt class="col-5">Entregar a partir de</dt>
+          <dd class="col-7 text-end mb-1" data-resumen="fecha"></dd>
+          <dt class="col-5">Direccion</dt>
+          <dd class="col-7 text-end mb-0"><?= e($cliente['direccion']) ?></dd>
+        </dl>
+        <ul class="resumen-pedido" data-resumen="lineas"></ul>
+        <div class="resumen-total"><span>Total</span><strong data-resumen="total"></strong></div>
+        <p class="small text-secondary mt-3 mb-0">Al confirmar reservamos las viandas del stock. El costo de entrega esta incluido.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Seguir editando</button>
+        <button type="button" class="btn btn-primary" data-pedido-confirmar>Confirmar pedido</button>
+      </div>
+    </div>
+  </div>
+</div>
 <?php require __DIR__ . '/../includes/pie.php'; ?>

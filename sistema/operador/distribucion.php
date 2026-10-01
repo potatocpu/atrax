@@ -88,7 +88,9 @@ require __DIR__ . '/../includes/cabecera.php';
                   <li class="d-flex justify-content-between align-items-center border-top py-2">
                     <span>#<?= (int) $pedido['id'] ?> · <?= (int) $pedido['viandas'] ?> viandas</span>
                     <?php if ($pedido['estado'] === 'Listo'): ?>
-                      <form action="<?= url('acciones/distribucion.php') ?>" method="post">
+                      <form action="<?= url('acciones/distribucion.php') ?>" method="post"
+                            data-confirmar="El pedido #<?= (int) $pedido['id'] ?> vuelve a la lista de pedidos listos sin asignar."
+                            data-confirmar-titulo="Quitar del <?= e($vehiculo['nombre']) ?>?" data-confirmar-boton="Quitar">
                         <?= campo_token() ?>
                         <input type="hidden" name="accion" value="quitar">
                         <input type="hidden" name="pedido_id" value="<?= (int) $pedido['id'] ?>">

@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 860" role="img" aria-labelledby="logo-titulo">
+  <title id="logo-titulo">ViandaSegura</title>
+  <rect width="860" height="860" rx="180" fill="#162B4E"/>
+  <g transform="translate(86 92) scale(.8)">
+    <g fill="none" stroke="#D0B178" stroke-width="30" stroke-linejoin="round" stroke-linecap="round">
+      <path d="M40 778H822"/>
+      <path d="M118 778V252L226 110H350"/>
+      <path d="M542 110H650L752 252V778"/>
+      <path d="M226 110L300 272"/>
+      <path d="M160 232L262 206"/>
+      <path d="M118 262L445 304L752 256"/>
+      <path d="M445 250V348"/>
+      <path d="M118 352H305V778"/>
+      <path d="M305 322V450"/>
+      <path d="M305 405H388"/>
+      <path d="M118 520L398 452"/>
+      <path d="M215 498V598"/>
+      <path d="M118 600H445"/>
+      <path d="M305 690H445"/>
+      <path d="M455 460V778"/>
+      <path d="M545 300V440H752"/>
+      <path d="M495 376L545 346"/>
+      <path d="M488 440L740 640"/>
+      <path d="M645 440V535H752"/>
+    </g>
+    <circle cx="445" cy="405" r="42" fill="none" stroke="#D0B178" stroke-width="30"/>
+    <circle cx="445" cy="405" r="22" fill="#3E8036"/>
+    <path fill="#D0B178" d="M445 250C445 250 388 186 388 140A57 57 0 0 1 502 140C502 186 445 250 445 250Z"/>
+    <circle cx="445" cy="138" r="24" fill="#162B4E"/>
+    <g fill="#D0B178">
+      <path d="M215 388L262 428H248V470H228V445H202V470H182V428H168Z"/>
+      <path d="M380 498L427 538H413V580H393V555H367V580H347V538H333Z"/>
+      <path d="M215 648L262 688H248V730H228V705H202V730H182V688H168Z"/>
+      <rect x="636" y="298" width="5" height="30"/>
+      <path d="M641 298L662 305L641 312Z"/>
+      <path d="M604 348L638 320L672 348Z"/>
+      <rect x="612" y="346" width="52" height="54"/>
+      <rect x="584" y="358" width="28" height="42"/>
+      <rect x="664" y="358" width="28" height="42"/>
+      <rect x="576" y="398" width="124" height="10"/>
+      <path d="M515 560C520 520 570 515 580 545C588 570 600 585 630 600C668 620 672 690 635 720C600 748 545 740 520 705C500 675 505 610 515 560Z"/>
+    </g>
+    <g fill="#162B4E">
+      <rect x="590" y="368" width="8" height="10"/><rect x="602" y="368" width="8" height="10"/>
+      <rect x="672" y="368" width="8" height="10"/><rect x="684" y="368" width="8" height="10"/>
+      <rect x="620" y="362" width="8" height="10"/><rect x="652" y="362" width="8" height="10"/>
+      <path d="M630 398V382A8 8 0 0 1 646 382V398Z"/>
+      <circle cx="638" cy="337" r="4"/>
+    </g>
+  </g>
+</svg>

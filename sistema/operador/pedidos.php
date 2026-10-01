@@ -54,7 +54,11 @@ require __DIR__ . '/../includes/cabecera.php';
             <td><span class="etiqueta <?= $pedido['estado'] === 'Entregado' ? 'ok' : ($pedido['estado'] === 'Cancelado' ? '' : 'acento') ?>"><?= e($pedido['estado']) ?></span></td>
             <td>
               <?php if ($siguientes): ?>
-                <form class="d-flex gap-2" action="<?= url('acciones/pedidos.php') ?>" method="post">
+                <form class="d-flex gap-2" action="<?= url('acciones/pedidos.php') ?>" method="post"
+                      data-confirmar-cuando="estado:Cancelado"
+                      data-confirmar="Las viandas vuelven a sus lotes y se libera el vehiculo. Un pedido cancelado no se puede reactivar."
+                      data-confirmar-titulo="Cancelar el pedido #<?= (int) $pedido['id'] ?>?"
+                      data-confirmar-boton="Cancelar pedido" data-confirmar-tipo="peligro">
                   <?= campo_token() ?>
                   <input type="hidden" name="accion" value="estado">
                   <input type="hidden" name="id" value="<?= (int) $pedido['id'] ?>">

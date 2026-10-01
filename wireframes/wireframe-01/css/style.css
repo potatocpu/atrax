@@ -1,7 +1,7 @@
 /* ============================================================
-   Atrax — Pantalla de login (Pantalla 01 del diseño)
+   ViandaSegura — Pantalla de login (Pantalla 01 del diseño)
    Implementación solo visual: HTML + CSS, sin backend.
-   Paleta basada en los wireframes: papel claro + acento terracota.
+   Paleta basada en los wireframes: papel claro + acento azul marino.
    ============================================================ */
 
 :root {
@@ -10,8 +10,8 @@
   --tinta: #2c2a27;        /* texto principal */
   --tinta-2: #6c685f;      /* texto secundario */
   --linea: #d8d4c8;        /* bordes suaves */
-  --acento: #d56f3e;       /* terracota: acción primaria */
-  --acento-oscuro: #b85a2e;
+  --acento: #162b4e;       /* azul marino: acción primaria */
+  --acento-oscuro: #0f1f3a;
   --error: #c0392b;
 }
 
@@ -62,7 +62,7 @@ body {
   margin: 0 auto 8px;
   border: 2.5px solid var(--tinta);
   border-radius: 50% 30% 50% 30%;
-  background: #f6e3d7;
+  background: #e3e9f3;
   font-size: 26px;
   font-weight: 700;
   display: flex;
@@ -108,7 +108,7 @@ body {
 .field input:focus {
   outline: none;
   border-color: var(--acento);
-  box-shadow: 0 0 0 3px rgba(213, 111, 62, 0.15);
+  box-shadow: 0 0 0 3px rgba(22, 43, 78, 0.15);
 }
 
 /* contraseña con botón "ver" adentro */

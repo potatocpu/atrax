@@ -33,4 +33,8 @@ if ((int) $usuario['activo'] !== 1) {
 }
 
 abrir_sesion($usuario);
+
+$nombre = explode(' ', trim($usuario['nombre']))[0];
+flash_guardar('exito_titulo', 'Hola, ' . $nombre);
+flash_guardar('exito', 'Que bueno verte de nuevo en ' . APP_NOMBRE . '.');
 redirigir(panel_de($usuario['rol']));

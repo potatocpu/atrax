@@ -38,7 +38,11 @@ require __DIR__ . '/../includes/cabecera.php';
             <td><span class="etiqueta <?= $fila['activo'] ? 'ok' : '' ?>"><?= $fila['activo'] ? 'activo' : 'inactivo' ?></span></td>
             <td class="text-end">
               <?php if ((int) $fila['id'] !== (int) usuario()['id']): ?>
-                <form action="<?= url('acciones/usuarios.php') ?>" method="post">
+                <form action="<?= url('acciones/usuarios.php') ?>" method="post"
+                  <?php if ($fila['activo']): ?>
+                      data-confirmar="<?= e($fila['nombre']) ?> no va a poder iniciar sesion hasta que vuelvas a activar su cuenta."
+                      data-confirmar-titulo="Desactivar usuario?" data-confirmar-boton="Desactivar" data-confirmar-tipo="peligro"
+                  <?php endif; ?>>
                   <?= campo_token() ?>
                   <input type="hidden" name="accion" value="estado">
                   <input type="hidden" name="id" value="<?= (int) $fila['id'] ?>">

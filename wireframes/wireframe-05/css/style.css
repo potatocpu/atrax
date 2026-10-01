@@ -1,8 +1,8 @@
 /* ============================================================
-   Atrax — Estilos compartidos de pantallas de ADMINISTRADOR
+   ViandaSegura — Estilos compartidos de pantallas de ADMINISTRADOR
    (Dashboard, Zonas, Vehículos, Stock, Menús, Estadísticas)
    Implementación solo visual: HTML + CSS, sin backend.
-   Paleta: papel claro + acento terracota (igual que login).
+   Paleta: papel claro + acento azul marino (igual que login).
    ============================================================ */
 
 :root {
@@ -11,9 +11,9 @@
   --tinta: #2c2a27;
   --tinta-2: #6c685f;
   --linea: #d8d4c8;
-  --acento: #d56f3e;
-  --acento-oscuro: #b85a2e;
-  --acento-suave: #f6e3d7;
+  --acento: #162b4e;
+  --acento-oscuro: #0f1f3a;
+  --acento-suave: #e3e9f3;
   --ok-bg: #dcefdc;
   --ok-tx: #3d7a3d;
   --warn-bg: #f8e6c0;
@@ -289,7 +289,7 @@ body {
 }
 .field input:focus, .field select:focus {
   outline: none; border-color: var(--acento);
-  box-shadow: 0 0 0 3px rgba(213, 111, 62, 0.15);
+  box-shadow: 0 0 0 3px rgba(22, 43, 78, 0.15);
 }
 .form-actions { display: flex; gap: 10px; align-items: center; margin-top: 6px; }
 

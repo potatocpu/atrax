@@ -3,6 +3,10 @@
 require_once __DIR__ . '/conexion.php';
 require_once __DIR__ . '/funciones.php';
 
+if (APP_MANTENIMIENTO) {
+    mostrar_error(503);
+}
+
 if (session_status() === PHP_SESSION_NONE) {
     session_set_cookie_params(['httponly' => true, 'samesite' => 'Lax']);
     session_name('ATRAXSESION');
@@ -47,6 +51,36 @@ function panel_de(string $rol): string
     ];
 
     return $paneles[$rol] ?? 'login.php';
+}
+
+function menu_de(string $rol): array
+{
+    $menus = [
+        'administrador' => [
+            ['dashboard',     'Dashboard',       'admin/index.php'],
+            ['pedidos',       'Pedidos',         'admin/pedidos.php'],
+            ['stock',         'Stock minimo',    'admin/stock.php'],
+            ['menus',         'Menus y precios', 'admin/menus.php'],
+            ['zonas',         'Zonas',           'admin/zonas.php'],
+            ['vehiculos',     'Vehiculos',       'admin/vehiculos.php'],
+            ['estadisticas',  'Estadisticas',    'admin/estadisticas.php'],
+            ['usuarios',      'Usuarios',        'admin/usuarios.php'],
+        ],
+        'operador' => [
+            ['panel',        'Panel del dia', 'operador/index.php'],
+            ['produccion',   'Produccion',    'operador/produccion.php'],
+            ['stock',        'Stock',         'operador/stock.php'],
+            ['pedidos',      'Pedidos',       'operador/pedidos.php'],
+            ['distribucion', 'Distribucion',  'operador/distribucion.php'],
+        ],
+        'cliente' => [
+            ['menu',     'Menu',        'cliente/index.php'],
+            ['pedido',   'Armar pedido','cliente/pedido.php'],
+            ['pedidos',  'Mis pedidos', 'cliente/pedidos.php'],
+        ],
+    ];
+
+    return $menus[$rol] ?? [];
 }
 
 function abrir_sesion(array $usuario): void

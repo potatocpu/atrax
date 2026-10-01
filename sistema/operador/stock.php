@@ -10,13 +10,13 @@ $disponibles = array_values(array_filter($lotes, static fn ($lote) => $lote['est
 $alertas     = alertas_stock();
 $movimientos = ultimos_movimientos();
 
-$titulo  = 'Stock FIFO';
+$titulo  = 'Stock';
 $seccion = 'stock';
 require __DIR__ . '/../includes/cabecera.php';
 ?>
 <div class="encabezado-pagina">
   <div>
-    <h1>Stock por lotes (FIFO)</h1>
+    <h1>Stock por lotes</h1>
     <p>Los lotes se consumen por orden de vencimiento: el primero de la lista es el primero que sale.</p>
   </div>
 </div>
@@ -31,7 +31,7 @@ require __DIR__ . '/../includes/cabecera.php';
 <?php endif; ?>
 
 <section class="panel">
-  <header><h2>Lotes en orden FIFO</h2></header>
+  <header><h2>Lotes por orden de salida</h2></header>
   <div class="tabla-scroll">
     <table class="table align-middle">
       <thead>
@@ -74,7 +74,10 @@ require __DIR__ . '/../includes/cabecera.php';
 
 <section class="panel">
   <header><h2>Registrar movimiento de stock</h2></header>
-  <form action="<?= url('acciones/stock.php') ?>" method="post" data-validar novalidate>
+  <form action="<?= url('acciones/stock.php') ?>" method="post" data-validar novalidate
+        data-confirmar-cuando="tipo:Descarte"
+        data-confirmar="Se descarta todo lo disponible del lote {lote_id}. Esta accion no se puede deshacer."
+        data-confirmar-titulo="Descartar el lote?" data-confirmar-boton="Descartar" data-confirmar-tipo="peligro">
     <?= campo_token() ?>
 
     <div class="row g-3">
