@@ -36,7 +36,7 @@ require __DIR__ . '/../includes/cabecera.php';
       <header><h2>Estado</h2></header>
 
       <?php if ($pedido['estado'] === 'Cancelado'): ?>
-        <p class="etiqueta aviso">Pedido cancelado</p>
+        <p class="etiqueta peligro">Pedido cancelado</p>
       <?php endif; ?>
 
       <ol class="linea-tiempo">

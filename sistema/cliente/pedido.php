@@ -51,7 +51,7 @@ require __DIR__ . '/../includes/cabecera.php';
                     <?php if ($disponible > 0): ?>
                       <span class="etiqueta ok"><?= $disponible ?></span>
                     <?php else: ?>
-                      <span class="etiqueta aviso">agotado</span>
+                      <span class="etiqueta peligro">agotado</span>
                     <?php endif; ?>
                   </td>
                   <td>

@@ -30,7 +30,10 @@ require __DIR__ . '/../includes/cabecera.php';
         </thead>
         <tbody>
           <?php foreach ($productos as $producto): ?>
-            <?php $bajo = (int) $producto['disponible'] < (int) $producto['stock_minimo']; ?>
+            <?php
+            $agotado = (int) $producto['disponible'] <= 0;
+            $bajo    = (int) $producto['disponible'] < (int) $producto['stock_minimo'];
+            ?>
             <tr>
               <td class="fw-semibold"><?= e($producto['nombre']) ?></td>
               <td><?= (int) $producto['disponible'] ?></td>
@@ -41,7 +44,7 @@ require __DIR__ . '/../includes/cabecera.php';
                        name="minimo[<?= (int) $producto['id'] ?>]"
                        value="<?= (int) $producto['stock_minimo'] ?>">
               </td>
-              <td><span class="etiqueta <?= $bajo ? 'aviso' : 'ok' ?>"><?= $bajo ? 'bajo' : 'ok' ?></span></td>
+              <td><span class="etiqueta <?= $agotado ? 'peligro' : ($bajo ? 'aviso' : 'ok') ?>"><?= $agotado ? 'agotado' : ($bajo ? 'bajo' : 'ok') ?></span></td>
             </tr>
           <?php endforeach; ?>
         </tbody>

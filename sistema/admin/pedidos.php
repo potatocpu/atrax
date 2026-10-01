@@ -74,7 +74,7 @@ require __DIR__ . '/../includes/cabecera.php';
             <td><?= e($pedido['zona_codigo']) ?></td>
             <td><?= fecha_corta($pedido['fecha_entrega']) ?></td>
             <td><?= (int) $pedido['viandas'] ?></td>
-            <td><span class="etiqueta <?= $pedido['estado'] === 'Entregado' ? 'ok' : ($pedido['estado'] === 'Cancelado' ? '' : 'acento') ?>"><?= e($pedido['estado']) ?></span></td>
+            <td><span class="etiqueta <?= clase_estado($pedido['estado']) ?>"><?= e($pedido['estado']) ?></span></td>
             <td><?= e($pedido['vehiculo'] ?? 'sin asignar') ?></td>
             <td class="text-end"><?= moneda($pedido['total']) ?></td>
             <td class="text-end"><a class="btn btn-sm btn-outline-secondary" href="<?= url('admin/pedidos.php?ver=' . (int) $pedido['id']) ?>">Ver</a></td>

@@ -43,6 +43,17 @@ segunda entrega ([`wireframes/`](../../wireframes)).
 - **Esqueletos de carga**: al pasar de una pantalla a otra o enviar un formulario,
   el contenido se reemplaza por bloques grises con la forma de la pantalla que
   viene, el boton muestra "Procesando..." y una barra fina avanza arriba (captura 28).
+- **Colores de estado**: todas las pantallas usan la misma escala, y cada color
+  lleva un simbolo para no depender solo de el:
+
+  | Etiqueta | Significa | Ejemplos |
+  |---|---|---|
+  | ✓ verde | disponible o terminado bien | disponible, ok, activo, entregado, entrada |
+  | ! ambar | requiere atencion | vence hoy, bajo minimo, falta producir, capacidad llena |
+  | ✕ rojo | no se puede usar o se perdio | agotado, vencido, cancelado |
+  | gris punteado | neutro o fuera de uso | inactivo, descartado, mantenimiento, salida de stock, sin pedidos |
+  | azul | en curso | pendiente, preparando, listo, en distribucion, en ruta |
+
 - **Validaciones**: los formularios marcan en el momento los campos vacios o
   invalidos; el servidor vuelve a validar todo y responde con un aviso de error.
 

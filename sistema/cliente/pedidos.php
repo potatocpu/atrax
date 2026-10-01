@@ -32,7 +32,7 @@ require __DIR__ . '/../includes/cabecera.php';
         <article class="tarjeta">
           <div class="d-flex justify-content-between align-items-start mb-1">
             <h3 class="h6 mb-0">#<?= (int) $pedido['id'] ?></h3>
-            <span class="etiqueta <?= $pedido['estado'] === 'Entregado' ? 'ok' : ($pedido['estado'] === 'Cancelado' ? '' : 'acento') ?>">
+            <span class="etiqueta <?= clase_estado($pedido['estado']) ?>">
               <?= e($pedido['estado']) ?>
             </span>
           </div>

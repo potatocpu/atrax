@@ -66,6 +66,17 @@ function moneda($valor): string
     return '$ ' . number_format((float) $valor, 0, ',', '.');
 }
 
+function clase_estado(string $estado): string
+{
+    // Mismo color para cada estado del pedido en todas las pantallas.
+    $clases = [
+        'Entregado' => 'ok',
+        'Cancelado' => 'peligro',
+    ];
+
+    return $clases[$estado] ?? 'acento';
+}
+
 function fecha_corta(?string $valor): string
 {
     return $valor ? date('d/m/Y', strtotime($valor)) : '-';

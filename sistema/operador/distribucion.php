@@ -75,7 +75,7 @@ require __DIR__ . '/../includes/cabecera.php';
             <article class="tarjeta">
               <div class="d-flex justify-content-between align-items-start mb-1">
                 <h3 class="h6 mb-0"><?= e($vehiculo['nombre'] . ' · ' . $vehiculo['zona_codigo']) ?></h3>
-                <span class="etiqueta <?= $lleno ? 'aviso' : ($vehiculo['estado'] === 'Disponible' ? 'ok' : '') ?>">
+                <span class="etiqueta <?= $lleno ? 'aviso' : ($vehiculo['estado'] === 'Disponible' ? 'ok' : ($vehiculo['estado'] === 'En ruta' ? 'acento' : '')) ?>">
                   <?= $lleno ? 'capacidad llena' : e($vehiculo['estado']) ?>
                 </span>
               </div>
@@ -97,7 +97,7 @@ require __DIR__ . '/../includes/cabecera.php';
                         <button class="btn btn-sm btn-outline-secondary" type="submit">Quitar</button>
                       </form>
                     <?php else: ?>
-                      <span class="etiqueta acento"><?= e($pedido['estado']) ?></span>
+                      <span class="etiqueta <?= clase_estado($pedido['estado']) ?>"><?= e($pedido['estado']) ?></span>
                     <?php endif; ?>
                   </li>
                 <?php endforeach; ?>
