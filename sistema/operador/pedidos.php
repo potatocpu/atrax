@@ -56,7 +56,7 @@ require __DIR__ . '/../includes/cabecera.php';
               <?php if ($siguientes): ?>
                 <form class="d-flex gap-2" action="<?= url('acciones/pedidos.php') ?>" method="post"
                       data-confirmar-cuando="estado:Cancelado"
-                      data-confirmar="Un pedido cancelado queda en estado final y no se puede reactivar."
+                      data-confirmar="Las viandas vuelven a sus lotes y se libera el vehiculo. Un pedido cancelado no se puede reactivar."
                       data-confirmar-titulo="Cancelar el pedido #<?= (int) $pedido['id'] ?>?"
                       data-confirmar-boton="Cancelar pedido" data-confirmar-tipo="peligro">
                   <?= campo_token() ?>

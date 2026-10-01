@@ -381,6 +381,7 @@ h1, h2, h3 { letter-spacing: .2px; }
 .vs-toast-cuerpo { flex: 1; min-width: 0; }
 .vs-toast-titulo { font-weight: 600; margin: 0 0 .1rem; color: var(--azul); }
 .vs-toast-cuerpo ul { margin: 0; padding-left: 1.1rem; }
+.vs-toast-cuerpo ul.list-unstyled { padding-left: 0; }
 .vs-toast .btn-close { font-size: .7rem; margin-top: .2rem; }
 
 .vs-toast.exito { border-left-color: var(--ok-texto); }
